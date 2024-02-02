@@ -1,0 +1,44 @@
+.footerCredits a {
+    color: var(--lightest-main);
+    text-decoration: underline;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-family: var(--main-font);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    border-top: 10px solid var(--dark-light-main);
+    background-color: var(--dark-main);
+    color: var(--light-main); 
+}
+
+.footerCredits {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.footerCreditsAuthor {
+    display: flex;
+    gap: 7px;
+    align-items: center; 
+}
+.footerCreditsDesafio {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.footerLinksList {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+
+/* Media Query */
