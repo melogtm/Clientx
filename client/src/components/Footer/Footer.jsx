@@ -27,7 +27,7 @@ export default function Footer() {
         </section>
 
         <section className='footerCopy'>
-            <p>© Copyright {new Date().getFullYear()}</p> 
+            <p>© {new Date().getFullYear()}</p> 
         </section>
     </footer>
   )
