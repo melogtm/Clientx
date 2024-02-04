@@ -38,7 +38,6 @@
 
 .client:hover {
     background-color: var(--lightest-main);
-    cursor: pointer;
 }
 
 .clientItem {
