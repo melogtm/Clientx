@@ -1,9 +1,16 @@
 import express from "express";
 import { getClientsList, addClient } from "./database/operations.js";
+// BodyParser Config
+import bodyParser from "body-parser";
 
 const app = express(); 
-const PORT = process.env.PORT || 3000;  
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true})); 
 
+const PORT = process.env.PORT || 9000;  
+
+
+// GETs
 app.get("/clientes", async (req, res) => {
 
     let numClientsPerPage, offSetForPage, results; 
@@ -20,6 +27,11 @@ app.get("/clientes", async (req, res) => {
     } else {
         res.json(results); 
     }
+});
+
+// POSTs
+app.post("/adicionar", (req, res) => {
+    res.send(req.body); 
 });
 
 app.listen(PORT, () => {

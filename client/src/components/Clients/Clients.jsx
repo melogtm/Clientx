@@ -20,7 +20,7 @@ export default function Clients() {
   return (
     <div className="clients">
         <section className="clientsButtons">
-            <button className="addClientBtn">Adicionar cliente</button>
+            <a href="/adicionar"><button className="addClientBtn">Adicionar cliente</button></a>
             <section className="clientsSearch">
                 <input onChange={handleSearch} type="text" placeholder="Pesquisar cliente" />
             </section>
