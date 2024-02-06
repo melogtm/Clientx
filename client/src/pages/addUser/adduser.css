@@ -7,7 +7,7 @@
 }
 
 .formTitle {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: var(--dark-light-main);
     font-size: 30px;
 }
@@ -48,3 +48,9 @@
     align-self: flex-start;
     cursor: pointer;
 }
+
+.alert {
+    padding: 2.5px;
+    background-color: #f44336; /* Red */
+    color: white;
+  }
