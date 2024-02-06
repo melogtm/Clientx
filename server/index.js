@@ -30,8 +30,17 @@ app.get("/clientes", async (req, res) => {
 });
 
 // POSTs
-app.post("/adicionar", (req, res) => {
-    res.send(req.body); 
+app.post("/adicionar", async (req, res) => {
+    // Req.body = Object {nome: "nome", email: "d", phone: "phone"}
+    const {nome, email, phone} = req.body; 
+
+    const newClient = await addClient(Array(nome, email, phone)); 
+
+    if (newClient) {
+        res.sendStatus(200); // Client entry created.
+    } else {
+        res.sendStatus(500); // Something went wrong. 
+    }
 });
 
 app.listen(PORT, () => {

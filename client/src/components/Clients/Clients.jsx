@@ -1,20 +1,29 @@
 import "./clients.css";
 import Client from "../Client/Client";
-import { useState } from "react";
-import users from "../../db/users"; // While there is no database
+import { useState, useEffect } from "react";
+import axios from "axios"; 
 
+const apiUrl = "http://localhost:9000/"
 
 export default function Clients() {
 
-  const [listUsers, setListUsers] = useState(users);
+  const [listUsers, setListUsers] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    axios.get(apiUrl + "clientes").then((response) => {
+      setListUsers(response.data);
+      setSearchResults(response.data);
+    })
+  }, [])
 
   function handleSearch(e) {
     let searchValue = e.target.value;
     let filteredBySearch = [];
 
-    filteredBySearch = users.filter((user) => `${user.name}${user.email}${user.phone}`.includes(searchValue)); 
+    filteredBySearch = listUsers.filter((user) => `${user.nome}${user.email}${user.phone}`.includes(searchValue)); 
     
-    setListUsers(filteredBySearch); 
+    setSearchResults(filteredBySearch); 
   };
 
   return (
@@ -34,8 +43,8 @@ export default function Clients() {
         </tr>
         </thead>
         <tbody>
-        { listUsers.map((user) => {
-          return <Client key={user.id} name={user.name} email={user.email} phone={user.phone} /> 
+        { searchResults.map((user) => {
+          return <Client key={user.id} name={user.nome} email={user.email} phone={user.phone} /> 
         }) }
         </tbody>
         </table>
