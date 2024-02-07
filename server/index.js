@@ -9,7 +9,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 const PORT = process.env.PORT || 9000;  
 
-
 // GETs
 app.get("/clientes", async (req, res) => {
 
@@ -31,7 +30,6 @@ app.get("/clientes", async (req, res) => {
 
 // POSTs
 app.post("/adicionar", async (req, res) => {
-    // Req.body = Object {nome: "nome", email: "d", phone: "phone"}
     const {nome, email, phone} = req.body; 
 
     const newClient = await addClient(Array(nome, email, phone)); 

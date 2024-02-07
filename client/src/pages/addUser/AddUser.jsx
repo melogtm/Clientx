@@ -31,6 +31,7 @@ export default function AddUser() {
     };
 
     function handleClient(e) {
+        // Name, email or phone? 
         const propertyChange = e.target.name; 
 
         setClient({
@@ -51,6 +52,7 @@ export default function AddUser() {
             return -1;
         }
 
+        // Returns 200 if success; 500 if failure.
         axios.post("http://localhost:9000/adicionar", client).then((response) => console.log(response.data));
         navigate("/"); 
     };
